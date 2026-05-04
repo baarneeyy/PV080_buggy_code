@@ -22,8 +22,11 @@ def print_nametag(format_string, person):
     print(format_string.format(person=person))
 
 
-def fetch_website(urllib_version, url):
+def fetch_website(urllib_version=3, url):
     # Import the requested version (2 or 3) of urllib
+    valid = (2,3)
+    if urllib_version not in valid:
+        urllib_version = 3
     exec(f"import urllib{urllib_version} as urllib", globals())
     # Fetch and print the requested URL
  
